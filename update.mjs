@@ -5,6 +5,9 @@ const config = [
 
   // https://github.com/StupidHackTH/StupidHackTH.github.io
   ['stupid.hackathon.in.th', 'CNAME', 'stupidhackth.github.io'],
+
+  // https://github.com/StupidHackTH/event-currency
+  ['staff.7th.stupid.hackathon.in.th', 'CNAME', 'cname.vercel-dns.com']
 ]
 
 const zoneId = process.env.CLOUDFLARE_ZONE_ID
