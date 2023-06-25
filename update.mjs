@@ -12,6 +12,9 @@ const config = [
   // https://github.com/StupidHackTH/event-currency-interface
   ['wallet.7th.stupid.hackathon.in.th', 'CNAME', 'cname.vercel-dns.com'],
   ['_vercel.hackathon.in.th', 'TXT', 'vc-domain-verify=wallet.7th.stupid.hackathon.in.th,ffacee0fe9da5f8feb3b'],
+
+  // https://github.com/StupidHackTH/sht7-vote
+  ['vote.7th.stupid.hackathon.in.th', 'CNAME', 'cname.vercel-dns.com']
 ]
 
 const zoneId = process.env.CLOUDFLARE_ZONE_ID
