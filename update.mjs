@@ -18,7 +18,9 @@ const config = [
 
   // https://github.com/NTPLSRPP/SHiT8.125
   ['shit.8.125.stupid.hackathon.in.th', 'CNAME', 'cname.vercel-dns.com'],
-  ['_vercel.hackathon.in.th', 'TXT', 'vc-domain-verify=shit.8.125.stupid.hackathon.in.th,46cf6a5c2beb81c2a3c2']
+  ['_vercel.hackathon.in.th', 'TXT', 'vc-domain-verify=shit.8.125.stupid.hackathon.in.th,46cf6a5c2beb81c2a3c2'],
+
+  ['intania.hackathon.in.th', 'CNAME', 'kube1.intania.org']
 ]
 
 const zoneId = process.env.CLOUDFLARE_ZONE_ID
