@@ -20,7 +20,8 @@ const config = [
   ['shit.8.125.stupid.hackathon.in.th', 'CNAME', 'cname.vercel-dns.com'],
   ['_vercel.hackathon.in.th', 'TXT', 'vc-domain-verify=shit.8.125.stupid.hackathon.in.th,46cf6a5c2beb81c2a3c2'],
 
-  ['intania.hackathon.in.th', 'A', '35.240.139.197']
+  ['intania.hackathon.in.th', 'A', '35.240.139.197'],
+  ['manorah.stupid.hackathon.in.th', 'A', '103.216.158.133'],
 ]
 
 const zoneId = process.env.CLOUDFLARE_ZONE_ID
