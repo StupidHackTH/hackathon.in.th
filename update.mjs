@@ -76,13 +76,13 @@ async function getZones() {
   let page = 1
   while (true) {
     const response = await fetch(
-    `https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?per_page=100&page=${page}`,
-    {
-      headers: {
+      `https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?per_page=100&page=${page}`,
+      {
+        headers: {
         Authorization: `Bearer ${apiToken}`,
+        },
       },
-    },
-  )
+    )
     const { result, result_info, success, errors } = await response.json()
     if (!response.ok || !success || !Array.isArray(result)) {
       throw new Error(
