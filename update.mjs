@@ -72,16 +72,27 @@ async function sync() {
 }
 
 async function getZones() {
-  const response = await fetch(
-    `https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records`,
+  const zones = []
+  let page = 1
+  while (true) {
+    const response = await fetch(
+    `https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?per_page=100&page=${page}`,
     {
       headers: {
         Authorization: `Bearer ${apiToken}`,
       },
     },
   )
-  const { result } = await response.json()
-  return result
+    const { result, result_info, success, errors } = await response.json()
+    if (!response.ok || !success || !Array.isArray(result)) {
+      throw new Error(
+        `Cloudflare API request failed (${response.status}): ${JSON.stringify(errors)}`,
+      )
+    }
+    zones.push(...result)
+    if (page >= result_info.total_pages) return zones
+    page++
+  }
 }
 
 async function deleteZoneById(id) {
@@ -124,6 +135,11 @@ async function createZone(type, name, content) {
       body: JSON.stringify({ type, name, content, ttl: 1 }),
     },
   )
-  const { result } = await response.json()
+  const { result, success, errors } = await response.json()
+  if (!response.ok || !success || !result?.id) {
+    throw new Error(
+      `Cloudflare API request failed (${response.status}): ${JSON.stringify(errors)}`,
+    )
+  }
   return `${response.status} ${result.id}`
 }
